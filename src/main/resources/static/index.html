@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Career Mentor</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="main-header">
+
+    <div class="logo">
+        🤖 AI Career Mentor
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#auth">🔐 Account</a>
+        <a href="#profile">Profile</a>
+        <a href="#chat">AI Chat</a>
+        <a href="#recommendation">Recommendation</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#interview">Interview</a>
+        <a href="#skill-gap">Skill Gap</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#resume">Resume</a>
+        <a href="#history">History</a>
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     LOGIN / REGISTER
+===================================================== -->
+
+<section id="auth" class="feature-section">
+
+    <div class="section-title">
+
+        <span>🔐</span>
+
+        <div>
+            <h2>Account</h2>
+
+            <p>
+                Create an account or login to your AI Career Mentor.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="auth-container">
+
+        <!-- REGISTER -->
+
+        <div class="auth-box">
+
+            <h3>📝 Create Account</h3>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Full Name"
+            >
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Password"
+            >
+
+            <button onclick="registerUser()">
+                📝 Register
+            </button>
+
+            <div id="registerResult" class="result-box">
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div class="auth-box">
+
+            <h3>🔑 Login</h3>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button onclick="loginUser()">
+                🔑 Login
+            </button>
+
+            <div id="loginResult" class="result-box">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            🤖 AI Powered Career Guidance
+        </div>
+
+        <h1>
+            Your Personal
+            <span>AI Career Mentor</span>
+            🚀
+        </h1>
+
+        <p>
+            Get personalized career guidance, skill recommendations,
+            learning roadmaps, interview preparation and
+            AI-powered career advice.
+        </p>
+
+        <button onclick="scrollToSection('profile')">
+            Start Your Career Journey →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROFILE
+===================================================== -->
+
+<section id="profile" class="feature-section">
+
+    <div class="section-title">
+
+        <span>👤</span>
+
+        <div>
+
+            <h2>My Career Profile</h2>
+
+            <p>
+                Enter your details once and use them
+                across your AI Career Mentor.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="input-container">
+
+        <input
+            type="text"
+            id="profileName"
+            placeholder="Your Name"
+        >
+
+        <input
+            type="text"
+            id="profileEducation"
+            placeholder="Education: B.Tech Computer Science"
+        >
+
+        <input
+            type="text"
+            id="profileSkills"
+            placeholder="Skills: Java, SQL, Spring Boot"
+        >
+
+        <input
+            type="text"
+            id="profileInterests"
+            placeholder="Interests: AI, Backend Development"
+        >
+
+        <input
+            type="text"
+            id="profileTargetRole"
+            placeholder="Target Role: Java Developer"
+        >
+
+        <input
+            type="text"
+            id="profileLocation"
+            placeholder="Preferred Location: Chennai"
+        >
+
+    </div>
+
+
+    <div class="profile-buttons">
+
+        <button onclick="saveCareerProfile()">
+            💾 Save Career Profile
+        </button>
+
+        <button onclick="loadCareerProfile()">
+            📂 Load Profile
+        </button>
+
+        <button
+            class="danger-button"
+            onclick="clearCareerProfile()"
+        >
+            🗑️ Clear Profile
+        </button>
+
+    </div>
+
+
+    <div id="profileResult" class="result-box">
+
+        <div class="empty-message">
+            👤 Enter your career details and save your profile.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AI CHAT
+===================================================== -->
+
+<section id="chat" class="feature-section">
+
+    <div class="section-title">
+
+        <span>💬</span>
+
+        <div>
+
+            <h2>Ask Your Career Mentor</h2>
+
+            <p>
+                Ask anything about your career,
+                skills, jobs or technology.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="input-container">
+
+        <input
+            type="text"
+            id="question"
+            placeholder="Example: How can I become a Java Developer?"
+            onkeydown="handleQuestionKey(event)"
+        >
+
+        <button onclick="askQuestion()">
+            🤖 Ask AI
+        </button>
+
+    </div>
+
+
+    <div id="answer" class="result-box">
+
+        <div class="empty-message">
+            🤖 Your AI answer will appear here.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CAREER RECOMMENDATION
+===================================================== -->
+
+<section id="recommendation" class="feature-section">
+
+    <div class="section-title">
+
+        <span>💼</span>
+
+        <div>
+
+            <h2>Career Recommendation</h2>
+
+            <p>
+                Get personalized career recommendations
+                based on your profile.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="input-container">
+
+        <input
+            type="text"
+            id="skills"
+            placeholder="Skills: Java, SQL, Spring Boot"
+        >
+
+        <input
+            type="text"
+            id="interests"
+            placeholder="Interests: AI, Web Development"
+        >
+
+        <input
+            type="text"
+            id="goals"
+            placeholder="Education: B.Tech Computer Science"
+        >
+
+        <button onclick="getRecommendation()">
+            💼 Get Recommendation
+        </button>
+
+    </div>
+
+
+    <div id="recommendationResult" class="result-box">
+
+        <div class="empty-message">
+            🎯 Your career recommendation will appear here.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ROADMAP
+===================================================== -->
+
+<section id="roadmap" class="feature-section">
+
+    <div class="section-title">
+
+        <span>🗺️</span>
+
+        <div>
+
+            <h2>AI Career Roadmap</h2>
+
+            <p>
+                Get a personalized step-by-step
+                learning roadmap.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="input-container">
+
+        <input
+            type="text"
+            id="careerGoal"
+            placeholder="Example: Java Developer"
+        >
+
+        <button onclick="generateRoadmap()">
+            🚀 Generate Roadmap
+        </button>
+
+    </div>
+
+
+    <div id="roadmapResult" class="result-box">
+
+        <div class="empty-message">
+            🗺️ Your learning roadmap will appear here.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTERVIEW
+===================================================== -->
+
+<section id="interview" class="feature-section">
+
+    <div class="section-title">
+
+        <span>🎯</span>
+
+        <div>
+
+            <h2>AI Interview Preparation</h2>
+
+            <p>
+                Practice HR, technical and coding
+                interview questions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="input-container">
+
+        <input
+            type="text"
+            id="interviewRole"
+            placeholder="Example: Java Developer"
+        >
+
+        <input
+            type="text"
+            id="interviewQuestion"
+            placeholder="Example: Java interview"
+        >
+
+        <button onclick="generateInterview()">
+            🎯 Generate Questions
+        </button>
+
+    </div>
+
+
+    <div id="interviewResult" class="result-box">
+
+        <div class="empty-message">
+            🎯 Interview questions will appear here.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILL GAP
+===================================================== -->
+
+<section id="skill-gap" class="feature-section">
+
+    <div class="section-title">
+
+        <span>🧠</span>
+
+        <div>
+
+            <h2>AI Skill Gap Analyzer</h2>
+
+            <p>
+                Find out which skills you need
+                to learn for your dream job.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="input-container">
+
+        <input
+            type="text"
+            id="currentSkills"
+            placeholder="Current skills: Java, SQL, Spring Boot"
+        >
+
+        <input
+            type="text"
+            id="targetRole"
+            placeholder="Target role: Java Backend Developer"
+        >
+
+        <button onclick="analyzeSkillGap()">
+            📊 Analyze Skill Gap
+        </button>
+
+    </div>
+
+
+    <div id="skillGapResult" class="result-box">
+
+        <div class="empty-message">
+            🧠 Your skill gap analysis will appear here.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOB RECOMMENDATION
+===================================================== -->
+
+<section id="jobs" class="feature-section">
+
+    <div class="section-title">
+
+        <span>💼</span>
+
+        <div>
+
+            <h2>AI Job Recommendation</h2>
+
+            <p>
+                Find suitable jobs based on
+                your skills and target role.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="input-container">
+
+        <input
+            type="text"
+            id="jobSkills"
+            placeholder="Skills: Java, SQL, Spring Boot"
+        >
+
+        <input
+            type="text"
+            id="jobTargetRole"
+            placeholder="Target Role: Java Developer"
+        >
+
+        <input
+            type="text"
+            id="jobLocation"
+            placeholder="Location: Chennai / Bangalore / Remote"
+        >
+
+        <button onclick="getJobRecommendations()">
+            🔎 Find Suitable Jobs
+        </button>
+
+    </div>
+
+
+    <div id="jobRecommendationResult" class="result-box">
+
+        <div class="empty-message">
+            💼 Enter your skills, target role and location.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section id="dashboard" class="feature-section dashboard-section">
+
+    <div class="section-title">
+
+        <span>📊</span>
+
+        <div>
+
+            <h2>AI Career Dashboard</h2>
+
+            <p>
+                Get a complete overview of your career
+                progress and job readiness.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Dashboard Inputs -->
+
+    <div class="dashboard-input">
+
+        <input
+            type="text"
+            id="dashboardSkills"
+            placeholder="Your Skills: Java, SQL, Spring Boot"
+        >
+
+        <input
+            type="text"
+            id="dashboardTargetRole"
+            placeholder="Target Role: Java Developer"
+        >
+
+        <button onclick="generateDashboard()">
+            📊 Generate Dashboard
+        </button>
+
+    </div>
+
+
+    <!-- Dashboard Cards -->
+
+    <div class="dashboard-cards">
+
+        <!-- Skill Score -->
+
+        <div class="dashboard-card skill-card">
+
+            <div class="dashboard-icon">
+                🧠
+            </div>
+
+            <h3>
+                Skill Score
+            </h3>
+
+            <div
+                id="skillScore"
+                class="dashboard-score"
+            >
+                --
+            </div>
+
+            <div class="progress-container">
+
+                <div
+                    id="skillProgress"
+                    class="progress-bar"
+                    style="width: 0%;"
+                >
+                </div>
+
+            </div>
+
+            <p>
+                Your current skill level
+            </p>
+
+        </div>
+
+
+        <!-- Job Readiness -->
+
+        <div class="dashboard-card readiness-card">
+
+            <div class="dashboard-icon">
+                🎯
+            </div>
+
+            <h3>
+                Job Readiness
+            </h3>
+
+            <div
+                id="jobReadiness"
+                class="dashboard-score"
+            >
+                --
+            </div>
+
+            <div class="progress-container">
+
+                <div
+                    id="readinessProgress"
+                    class="progress-bar"
+                    style="width: 0%;"
+                >
+                </div>
+
+            </div>
+
+            <p>
+                Your job preparation level
+            </p>
+
+        </div>
+
+
+        <!-- Target Role -->
+
+        <div class="dashboard-card role-card">
+
+            <div class="dashboard-icon">
+                🚀
+            </div>
+
+            <h3>
+                Target Role
+            </h3>
+
+            <div
+                id="dashboardRole"
+                class="dashboard-role"
+            >
+                --
+            </div>
+
+            <p>
+                Your career goal
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Dashboard Summary -->
+
+    <div class="dashboard-summary">
+
+        <div class="summary-item">
+
+            <span>💻</span>
+
+            <div>
+
+                <strong>Career Focus</strong>
+
+                <p id="careerFocus">
+                    Your target role
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-item">
+
+            <span>📚</span>
+
+            <div>
+
+                <strong>Learning Focus</strong>
+
+                <p>
+                    Improve your missing skills
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-item">
+
+            <span>🚀</span>
+
+            <div>
+
+                <strong>Next Step</strong>
+
+                <p>
+                    Follow your AI roadmap
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI Dashboard Analysis -->
+
+    <div class="dashboard-analysis">
+
+        <div class="analysis-header">
+
+            <span>🤖</span>
+
+            <div>
+
+                <h3>
+                    AI Career Analysis
+                </h3>
+
+                <p>
+                    Personalized insights generated by AI
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="dashboardResult"
+            class="result-box"
+        >
+
+            <div class="empty-message">
+
+                📊 Enter your skills and target role,
+                then generate your dashboard.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESUME ANALYZER
+===================================================== -->
+
+<section id="resume" class="feature-section">
+
+    <div class="section-title">
+
+        <span>📄</span>
+
+        <div>
+
+            <h2>AI Resume Analyzer</h2>
+
+            <p>
+                Upload your PDF resume and get
+                AI-powered suggestions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Resume Upload -->
+
+    <div class="resume-box">
+
+        <input
+            type="file"
+            id="resumeFile"
+            accept=".pdf,application/pdf"
+        >
+
+        <button onclick="analyzeResume()">
+            📄 Analyze Resume
+        </button>
+
+    </div>
+
+
+    <!-- Resume Result -->
+
+    <div
+        id="resumeResult"
+        class="result-box"
+    >
+
+        <div class="empty-message">
+
+            📄 Upload your PDF resume to analyze it.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CHAT HISTORY
+===================================================== -->
+
+<section id="history" class="feature-section">
+
+    <div class="section-title">
+
+        <span>📜</span>
+
+        <div>
+
+            <h2>Chat History</h2>
+
+            <p>
+                View and manage your previous
+                AI conversations.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="history-buttons">
+
+        <button onclick="loadChatHistory()">
+            📜 Load History
+        </button>
+
+        <button
+            class="danger-button"
+            onclick="deleteAllChats()"
+        >
+            🗑️ Delete All
+        </button>
+
+    </div>
+
+
+    <div
+        id="historyResult"
+        class="result-box"
+    >
+
+        <div class="empty-message">
+
+            📜 Click Load History to view your conversations.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>
+            🤖 AI Career Mentor
+        </h2>
+
+        <p>
+            Your AI-powered guide for career growth and success.
+        </p>
+
+        <p>
+            Java • Spring Boot • MongoDB • Gemini AI
+        </p>
+
+        <hr>
+
+        <p>
+            © 2026 AI Career Mentor | Final Year Project
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+<!-- =====================================================
+     DASHBOARD PROGRESS UPDATE
+===================================================== -->
+
+<script>
+
+function updateDashboardProgress() {
+
+    const skillElement =
+        document.getElementById("skillScore");
+
+    const readinessElement =
+        document.getElementById("jobReadiness");
+
+    const skillProgress =
+        document.getElementById("skillProgress");
+
+    const readinessProgress =
+        document.getElementById("readinessProgress");
+
+    const careerFocus =
+        document.getElementById("careerFocus");
+
+    const dashboardRole =
+        document.getElementById("dashboardRole");
+
+
+    if (skillElement && skillProgress) {
+
+        const skill =
+            parseInt(skillElement.innerText);
+
+        if (!isNaN(skill)) {
+
+            skillProgress.style.width =
+                Math.min(skill, 100) + "%";
+
+        }
+
+    }
+
+
+    if (readinessElement && readinessProgress) {
+
+        const readiness =
+            parseInt(readinessElement.innerText);
+
+        if (!isNaN(readiness)) {
+
+            readinessProgress.style.width =
+                Math.min(readiness, 100) + "%";
+
+        }
+
+    }
+
+
+    if (careerFocus && dashboardRole) {
+
+        careerFocus.innerText =
+            dashboardRole.innerText;
+
+    }
+
+}
+
+
+setInterval(
+    updateDashboardProgress,
+    500
+);
+
+</script>
+
+
+</body>
+</html>
