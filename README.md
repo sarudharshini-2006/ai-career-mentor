@@ -1,5 +1,8 @@
 # 🤖 AI Career Mentor
 
+## 🚀 Live Demo
+https://ai-career-mentor-4.onrender.com
+
 AI Career Mentor is an AI-powered web application that helps students and job seekers make better career decisions.
 
 It provides personalized career recommendations, skill-gap analysis, learning roadmaps, interview preparation, job recommendations, resume analysis, career chat, and a career dashboard.
