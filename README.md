@@ -85,11 +85,13 @@ The application combines a Spring Boot backend, MongoDB database, AI API integra
 
 - Java
 - Spring Boot
+- REST API
 - Spring Web
 - Spring Data MongoDB
 
 ### Database
 
+- MongoDB
 - MongoDB Atlas
 
 ### AI Integration
@@ -99,6 +101,11 @@ The application combines a Spring Boot backend, MongoDB database, AI API integra
 ### Build Tool
 
 - Maven
+
+### Version Control
+
+- Git
+- GitHub
 
 ### Deployment
 
@@ -111,30 +118,33 @@ The application combines a Spring Boot backend, MongoDB database, AI API integra
 
 ```text
                     ┌─────────────────────┐
-                    │       User          │
+                    │        User         │
                     └──────────┬──────────┘
                                │
                                ▼
                     ┌─────────────────────┐
                     │   Web Frontend      │
-                    │ HTML/CSS/JavaScript │
+                    │ HTML / CSS / JS     │
                     └──────────┬──────────┘
+                               │
+                         REST API
                                │
                                ▼
                     ┌─────────────────────┐
                     │   Spring Boot       │
                     │      Backend        │
+                    │     Java APIs       │
                     └───────┬─────┬───────┘
                             │     │
                  ┌──────────┘     └──────────┐
                  ▼                           ▼
        ┌─────────────────┐          ┌─────────────────┐
        │  MongoDB Atlas  │          │    Groq API     │
-       │     Database    │          │   AI Services   │
+       │    Database     │          │  AI Services    │
        └─────────────────┘          └─────────────────┘
                             │
                             ▼
                     ┌─────────────────────┐
-                    │ Docker + Render     │
-                    │    Deployment       │
+                    │   Docker + Render   │
+                    │     Deployment      │
                     └─────────────────────┘
