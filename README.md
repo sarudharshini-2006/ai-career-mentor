@@ -1,116 +1,140 @@
 # 🤖 AI Career Mentor
 
-## 🚀 Live Demo
+AI Career Mentor is an AI-powered career guidance platform designed to help students and fresh graduates make better career decisions.
+
+The platform provides personalized career recommendations, skill-gap analysis, career roadmaps, interview preparation, job recommendations, and resume analysis through an interactive web application.
+
+---
+
+## 🌐 Live Demo
+
+🚀 **Live Application:**  
 https://ai-career-mentor-4.onrender.com
 
-AI Career Mentor is an AI-powered web application that helps students and job seekers make better career decisions.
-
-It provides personalized career recommendations, skill-gap analysis, learning roadmaps, interview preparation, job recommendations, resume analysis, career chat, and a career dashboard.
+📂 **GitHub Repository:**  
+https://github.com/sarudharshini-2006/ai-career-mentor
 
 ---
 
-## 🚀 Features
+## 📌 Project Overview
 
-### 💬 AI Career Chat
-Ask career-related questions and receive personalized AI guidance.
+Choosing the right career path can be difficult for students and fresh graduates because they may not know which skills to develop, which roles match their interests, or how to prepare for interviews.
 
-### 💼 Career Recommendation
-Recommends suitable career roles based on:
-- Skills
-- Interests
-- Education
+AI Career Mentor provides an AI-based platform that helps users explore suitable career paths and prepare for their career journey.
 
-### 🧠 Skill Gap Analyzer
-Identifies missing skills required for the user's target job role.
+The application combines a Spring Boot backend, MongoDB database, AI API integration, and a web-based frontend.
 
-### 🗺️ AI Learning Roadmap
-Generates a step-by-step learning roadmap for the selected career.
+---
 
-### 🎯 Interview Preparation
-Generates interview questions and preparation guidance for different job roles.
-
-### 🔎 Job Recommendation
-Provides job recommendations based on:
-- Skills
-- Target role
-- Preferred location
-
-### 📊 Career Dashboard
-Displays:
-- Skill Score
-- Job Readiness
-- Target Role
-- AI Career Analysis
-
-### 📄 Resume Analyzer
-Allows users to upload a resume and receive AI-powered feedback.
+## ✨ Features
 
 ### 🔐 User Authentication
-Supports:
-- User Registration
-- User Login
 
-### 👤 Career Profile
-Users can save their:
-- Name
-- Education
-- Skills
-- Interests
-- Target Role
-- Preferred Location
+- User registration
+- User login
+- Email-based user identification
+- User information stored in MongoDB
 
-### 📜 Chat History
-Users can view and delete previous AI career conversations.
+### 🤖 AI Career Assistance
+
+- AI-powered career guidance
+- Personalized career recommendations
+- Career-related question answering
+- AI-based suggestions based on user requirements
+
+### 📊 Skill Gap Analysis
+
+- Identifies skills required for career roles
+- Helps users understand missing skills
+- Provides guidance on skills to improve
+
+### 🗺️ Career Roadmap
+
+- Provides structured career learning paths
+- Helps users understand what to learn next
+- Guides users towards their target career
+
+### 🎤 Interview Preparation
+
+- Interview preparation assistance
+- Career-related interview guidance
+- AI-powered support for interview preparation
+
+### 💼 Job Recommendations
+
+- Provides job-related recommendations
+- Helps users explore suitable career opportunities
+
+### 📄 Resume Analysis
+
+- Resume-related career guidance
+- Helps identify areas that can be improved
+- Provides AI-based career suggestions
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 ### Frontend
-- HTML5
-- CSS3
+
+- HTML
+- CSS
 - JavaScript
 
 ### Backend
+
 - Java
 - Spring Boot
-- REST API
+- Spring Web
+- Spring Data MongoDB
 
 ### Database
-- MongoDB
 
-### AI
+- MongoDB Atlas
+
+### AI Integration
+
 - Groq API
 
 ### Build Tool
+
 - Maven
 
-### Version Control
-- Git
-- GitHub
+### Deployment
+
+- Docker
+- Render
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ Application Architecture
 
 ```text
-             ┌──────────────────────┐
-             │       User           │
-             └──────────┬───────────┘
-                        │
-                        ▼
-             ┌──────────────────────┐
-             │ Frontend             │
-             │ HTML / CSS / JS      │
-             └──────────┬───────────┘
-                        │ REST API
-                        ▼
-             ┌──────────────────────┐
-             │ Spring Boot Backend  │
-             │ Java REST APIs       │
-             └───────┬───────┬──────┘
-                     │       │
-             ┌───────▼───┐ ┌─▼────────────┐
-             │ MongoDB   │ │ Groq AI API  │
-             │ Database  │ │ AI Responses  │
-             └───────────┘ └──────────────┘
+                    ┌─────────────────────┐
+                    │       User          │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   Web Frontend      │
+                    │ HTML/CSS/JavaScript │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   Spring Boot       │
+                    │      Backend        │
+                    └───────┬─────┬───────┘
+                            │     │
+                 ┌──────────┘     └──────────┐
+                 ▼                           ▼
+       ┌─────────────────┐          ┌─────────────────┐
+       │  MongoDB Atlas  │          │    Groq API     │
+       │     Database    │          │   AI Services   │
+       └─────────────────┘          └─────────────────┘
+                            │
+                            ▼
+                    ┌─────────────────────┐
+                    │ Docker + Render     │
+                    │    Deployment       │
+                    └─────────────────────┘
